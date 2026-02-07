@@ -1,4 +1,5 @@
-import { streamText, stepCountIs } from 'ai';
+import { streamText, stepCountIs, convertToModelMessages } from 'ai';
+import type { UIMessage } from 'ai';
 import { anthropic } from '@ai-sdk/anthropic';
 import { buildSystemPrompt } from '@/lib/chat/system-prompt';
 import { chatTools } from '@/lib/chat/tools';
@@ -24,6 +25,18 @@ function getClientIp(req: Request): string {
     return forwarded.split(',')[0].trim();
   }
   return '127.0.0.1';
+}
+
+function getLastUserText(messages: UIMessage[]): string | null {
+  for (let i = messages.length - 1; i >= 0; i--) {
+    if (messages[i].role === 'user') {
+      const textParts = messages[i].parts.filter(
+        (p): p is Extract<typeof p, { type: 'text' }> => p.type === 'text',
+      );
+      return textParts.map((p) => p.text).join('');
+    }
+  }
+  return null;
 }
 
 export async function POST(req: Request) {
@@ -53,9 +66,9 @@ export async function POST(req: Request) {
     );
   }
 
-  // Parse request body
+  // Parse request body (UIMessage format from @ai-sdk/react useChat)
   let body: {
-    messages: Array<{ role: 'user' | 'assistant'; content: string }>;
+    messages: UIMessage[];
     city?: CityId | null;
     filters?: { datePreset: string; activeModes: string[] };
   };
@@ -79,12 +92,9 @@ export async function POST(req: Request) {
     });
   }
 
-  // Validate message length
-  const lastMessage = messages[messages.length - 1];
-  if (
-    lastMessage.role === 'user' &&
-    lastMessage.content.length > MAX_MESSAGE_LENGTH
-  ) {
+  // Validate last user message length
+  const lastUserText = getLastUserText(messages);
+  if (lastUserText && lastUserText.length > MAX_MESSAGE_LENGTH) {
     return new Response(
       JSON.stringify({
         error: `Message too long. Maximum ${MAX_MESSAGE_LENGTH} characters.`,
@@ -104,10 +114,13 @@ export async function POST(req: Request) {
 
   const systemPrompt = buildSystemPrompt(city ?? null, filters);
 
+  // Convert UIMessages to ModelMessages for the LLM
+  const modelMessages = await convertToModelMessages(messages);
+
   const result = streamText({
     model: anthropic('claude-sonnet-4-20250514'),
     system: systemPrompt,
-    messages,
+    messages: modelMessages,
     tools: chatTools,
     stopWhen: stepCountIs(3),
     temperature: 0.3,
