@@ -1,0 +1,34 @@
+[
+  {
+    "event": "launch",
+    "date": "2024-01-05",
+    "before30d": {
+      "avgSubway": 3098074.1666666665,
+      "avgBridgesTunnels": 886457.2,
+      "avgTotal": 5362698.966666667
+    },
+    "after30d": {
+      "avgSubway": 2975095.966666667,
+      "avgBridgesTunnels": 827801.1,
+      "avgTotal": 5202860.466666667
+    },
+    "subwayDelta": -3.96950471112564,
+    "bridgesDelta": -6.616912807521895
+  },
+  {
+    "event": "pause",
+    "date": "2024-06-05",
+    "before30d": {
+      "avgSubway": 3386364.2666666666,
+      "avgBridgesTunnels": 961807.8,
+      "avgTotal": 5904630.066666666
+    },
+    "after30d": {
+      "avgSubway": 3232123.3333333335,
+      "avgBridgesTunnels": 975950.3666666667,
+      "avgTotal": 5733164.833333333
+    },
+    "subwayDelta": -4.554764968777521,
+    "bridgesDelta": 1.4704150524321649
+  }
+]

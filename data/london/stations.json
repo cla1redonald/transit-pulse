@@ -1,0 +1,794 @@
+[
+  {
+    "id": "king-cross",
+    "name": "King's Cross St Pancras",
+    "lat": 51.5308,
+    "lng": -0.1238,
+    "zone": 1,
+    "lines": [
+      "Victoria",
+      "Piccadilly",
+      "Northern",
+      "Circle",
+      "Hammersmith & City",
+      "Metropolitan"
+    ],
+    "avgDailyJourneys": 56332,
+    "recoveryPct": 86
+  },
+  {
+    "id": "victoria",
+    "name": "Victoria",
+    "lat": 51.4952,
+    "lng": -0.1441,
+    "zone": 1,
+    "lines": [
+      "Victoria",
+      "District",
+      "Circle"
+    ],
+    "avgDailyJourneys": 51456,
+    "recoveryPct": 82
+  },
+  {
+    "id": "waterloo",
+    "name": "Waterloo",
+    "lat": 51.5036,
+    "lng": -0.1143,
+    "zone": 1,
+    "lines": [
+      "Jubilee",
+      "Northern",
+      "Bakerloo",
+      "Waterloo & City"
+    ],
+    "avgDailyJourneys": 95375,
+    "recoveryPct": 86
+  },
+  {
+    "id": "oxford-circus",
+    "name": "Oxford Circus",
+    "lat": 51.5152,
+    "lng": -0.1415,
+    "zone": 1,
+    "lines": [
+      "Victoria",
+      "Bakerloo",
+      "Central"
+    ],
+    "avgDailyJourneys": 61777,
+    "recoveryPct": 85
+  },
+  {
+    "id": "liverpool-street",
+    "name": "Liverpool Street",
+    "lat": 51.5178,
+    "lng": -0.0823,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "Hammersmith & City",
+      "Metropolitan",
+      "Central"
+    ],
+    "avgDailyJourneys": 64999,
+    "recoveryPct": 85
+  },
+  {
+    "id": "bank",
+    "name": "Bank/Monument",
+    "lat": 51.5133,
+    "lng": -0.0886,
+    "zone": 1,
+    "lines": [
+      "Central",
+      "Northern",
+      "Waterloo & City",
+      "DLR",
+      "Circle",
+      "District"
+    ],
+    "avgDailyJourneys": 60161,
+    "recoveryPct": 83
+  },
+  {
+    "id": "stratford",
+    "name": "Stratford",
+    "lat": 51.5416,
+    "lng": -0.0032,
+    "zone": 3,
+    "lines": [
+      "Central",
+      "Jubilee",
+      "Elizabeth"
+    ],
+    "avgDailyJourneys": 72796,
+    "recoveryPct": 90
+  },
+  {
+    "id": "canary-wharf",
+    "name": "Canary Wharf",
+    "lat": 51.5051,
+    "lng": -0.0209,
+    "zone": 2,
+    "lines": [
+      "Jubilee",
+      "Elizabeth",
+      "DLR"
+    ],
+    "avgDailyJourneys": 60115,
+    "recoveryPct": 87
+  },
+  {
+    "id": "paddington",
+    "name": "Paddington",
+    "lat": 51.5154,
+    "lng": -0.1755,
+    "zone": 1,
+    "lines": [
+      "Bakerloo",
+      "Circle",
+      "District",
+      "Hammersmith & City",
+      "Elizabeth"
+    ],
+    "avgDailyJourneys": 83682,
+    "recoveryPct": 85
+  },
+  {
+    "id": "london-bridge",
+    "name": "London Bridge",
+    "lat": 51.5052,
+    "lng": -0.0864,
+    "zone": 1,
+    "lines": [
+      "Jubilee",
+      "Northern"
+    ],
+    "avgDailyJourneys": 85279,
+    "recoveryPct": 83
+  },
+  {
+    "id": "euston",
+    "name": "Euston",
+    "lat": 51.5282,
+    "lng": -0.1337,
+    "zone": 1,
+    "lines": [
+      "Victoria",
+      "Northern"
+    ],
+    "avgDailyJourneys": 47082,
+    "recoveryPct": 85
+  },
+  {
+    "id": "piccadilly-circus",
+    "name": "Piccadilly Circus",
+    "lat": 51.5098,
+    "lng": -0.1342,
+    "zone": 1,
+    "lines": [
+      "Piccadilly",
+      "Bakerloo"
+    ],
+    "avgDailyJourneys": 34664,
+    "recoveryPct": 82
+  },
+  {
+    "id": "leicester-square",
+    "name": "Leicester Square",
+    "lat": 51.5113,
+    "lng": -0.1281,
+    "zone": 1,
+    "lines": [
+      "Piccadilly",
+      "Northern"
+    ],
+    "avgDailyJourneys": 36858,
+    "recoveryPct": 84
+  },
+  {
+    "id": "green-park",
+    "name": "Green Park",
+    "lat": 51.5067,
+    "lng": -0.1428,
+    "zone": 1,
+    "lines": [
+      "Jubilee",
+      "Piccadilly",
+      "Victoria"
+    ],
+    "avgDailyJourneys": 23302,
+    "recoveryPct": 85
+  },
+  {
+    "id": "bond-street",
+    "name": "Bond Street",
+    "lat": 51.5142,
+    "lng": -0.1494,
+    "zone": 1,
+    "lines": [
+      "Central",
+      "Jubilee",
+      "Elizabeth"
+    ],
+    "avgDailyJourneys": 22661,
+    "recoveryPct": 85
+  },
+  {
+    "id": "tottenham-court-road",
+    "name": "Tottenham Court Road",
+    "lat": 51.5165,
+    "lng": -0.1308,
+    "zone": 1,
+    "lines": [
+      "Central",
+      "Northern",
+      "Elizabeth"
+    ],
+    "avgDailyJourneys": 32242,
+    "recoveryPct": 83
+  },
+  {
+    "id": "clapham-junction",
+    "name": "Clapham Junction",
+    "lat": 51.4642,
+    "lng": -0.1705,
+    "zone": 2,
+    "lines": [
+      "Overground"
+    ],
+    "avgDailyJourneys": 16943,
+    "recoveryPct": 89
+  },
+  {
+    "id": "highbury-islington",
+    "name": "Highbury & Islington",
+    "lat": 51.5465,
+    "lng": -0.1042,
+    "zone": 2,
+    "lines": [
+      "Victoria",
+      "Overground"
+    ],
+    "avgDailyJourneys": 11972,
+    "recoveryPct": 89
+  },
+  {
+    "id": "earl-court",
+    "name": "Earl's Court",
+    "lat": 51.4919,
+    "lng": -0.1943,
+    "zone": 1,
+    "lines": [
+      "District",
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 36309,
+    "recoveryPct": 87
+  },
+  {
+    "id": "south-kensington",
+    "name": "South Kensington",
+    "lat": 51.4941,
+    "lng": -0.1738,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "District",
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 37767,
+    "recoveryPct": 85
+  },
+  {
+    "id": "knightsbridge",
+    "name": "Knightsbridge",
+    "lat": 51.5015,
+    "lng": -0.1607,
+    "zone": 1,
+    "lines": [
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 27873,
+    "recoveryPct": 84
+  },
+  {
+    "id": "holborn",
+    "name": "Holborn",
+    "lat": 51.5174,
+    "lng": -0.12,
+    "zone": 1,
+    "lines": [
+      "Central",
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 32658,
+    "recoveryPct": 83
+  },
+  {
+    "id": "farringdon",
+    "name": "Farringdon",
+    "lat": 51.5203,
+    "lng": -0.1053,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "Hammersmith & City",
+      "Metropolitan",
+      "Elizabeth"
+    ],
+    "avgDailyJourneys": 28388,
+    "recoveryPct": 85
+  },
+  {
+    "id": "moorgate",
+    "name": "Moorgate",
+    "lat": 51.5186,
+    "lng": -0.0886,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "Hammersmith & City",
+      "Metropolitan",
+      "Northern"
+    ],
+    "avgDailyJourneys": 23972,
+    "recoveryPct": 85
+  },
+  {
+    "id": "old-street",
+    "name": "Old Street",
+    "lat": 51.5263,
+    "lng": -0.0872,
+    "zone": 1,
+    "lines": [
+      "Northern"
+    ],
+    "avgDailyJourneys": 26588,
+    "recoveryPct": 82
+  },
+  {
+    "id": "angel",
+    "name": "Angel",
+    "lat": 51.5322,
+    "lng": -0.1058,
+    "zone": 1,
+    "lines": [
+      "Northern"
+    ],
+    "avgDailyJourneys": 27829,
+    "recoveryPct": 87
+  },
+  {
+    "id": "baker-street",
+    "name": "Baker Street",
+    "lat": 51.5226,
+    "lng": -0.1571,
+    "zone": 1,
+    "lines": [
+      "Bakerloo",
+      "Circle",
+      "Hammersmith & City",
+      "Jubilee",
+      "Metropolitan"
+    ],
+    "avgDailyJourneys": 46441,
+    "recoveryPct": 84
+  },
+  {
+    "id": "notting-hill-gate",
+    "name": "Notting Hill Gate",
+    "lat": 51.5094,
+    "lng": -0.1967,
+    "zone": 1,
+    "lines": [
+      "Central",
+      "Circle",
+      "District"
+    ],
+    "avgDailyJourneys": 48425,
+    "recoveryPct": 85
+  },
+  {
+    "id": "wimbledon",
+    "name": "Wimbledon",
+    "lat": 51.4214,
+    "lng": -0.2064,
+    "zone": 3,
+    "lines": [
+      "District"
+    ],
+    "avgDailyJourneys": 9234,
+    "recoveryPct": 92
+  },
+  {
+    "id": "blackfriars",
+    "name": "Blackfriars",
+    "lat": 51.512,
+    "lng": -0.104,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "District"
+    ],
+    "avgDailyJourneys": 41932,
+    "recoveryPct": 84
+  },
+  {
+    "id": "embankment",
+    "name": "Embankment",
+    "lat": 51.5074,
+    "lng": -0.1223,
+    "zone": 1,
+    "lines": [
+      "Bakerloo",
+      "Circle",
+      "District",
+      "Northern"
+    ],
+    "avgDailyJourneys": 29364,
+    "recoveryPct": 86
+  },
+  {
+    "id": "westminster",
+    "name": "Westminster",
+    "lat": 51.501,
+    "lng": -0.1254,
+    "zone": 1,
+    "lines": [
+      "Circle",
+      "District",
+      "Jubilee"
+    ],
+    "avgDailyJourneys": 25512,
+    "recoveryPct": 83
+  },
+  {
+    "id": "waterloo-east",
+    "name": "Waterloo East",
+    "lat": 51.5041,
+    "lng": -0.1109,
+    "zone": 1,
+    "lines": [
+      "Overground"
+    ],
+    "avgDailyJourneys": 23754,
+    "recoveryPct": 83
+  },
+  {
+    "id": "canada-water",
+    "name": "Canada Water",
+    "lat": 51.4982,
+    "lng": -0.0497,
+    "zone": 2,
+    "lines": [
+      "Jubilee",
+      "Overground"
+    ],
+    "avgDailyJourneys": 21169,
+    "recoveryPct": 88
+  },
+  {
+    "id": "whitechapel",
+    "name": "Whitechapel",
+    "lat": 51.5194,
+    "lng": -0.0612,
+    "zone": 2,
+    "lines": [
+      "District",
+      "Hammersmith & City",
+      "Elizabeth",
+      "Overground"
+    ],
+    "avgDailyJourneys": 19207,
+    "recoveryPct": 87
+  },
+  {
+    "id": "west-ham",
+    "name": "West Ham",
+    "lat": 51.5287,
+    "lng": 0.0056,
+    "zone": 3,
+    "lines": [
+      "District",
+      "Hammersmith & City",
+      "Jubilee",
+      "DLR"
+    ],
+    "avgDailyJourneys": 11502,
+    "recoveryPct": 93
+  },
+  {
+    "id": "canning-town",
+    "name": "Canning Town",
+    "lat": 51.5142,
+    "lng": 0.0083,
+    "zone": 3,
+    "lines": [
+      "Jubilee",
+      "DLR"
+    ],
+    "avgDailyJourneys": 6452,
+    "recoveryPct": 92
+  },
+  {
+    "id": "east-croydon",
+    "name": "East Croydon",
+    "lat": 51.3756,
+    "lng": -0.0929,
+    "zone": 5,
+    "lines": [
+      "Overground"
+    ],
+    "avgDailyJourneys": 9042,
+    "recoveryPct": 97
+  },
+  {
+    "id": "richmond",
+    "name": "Richmond",
+    "lat": 51.4613,
+    "lng": -0.3014,
+    "zone": 4,
+    "lines": [
+      "District",
+      "Overground"
+    ],
+    "avgDailyJourneys": 12494,
+    "recoveryPct": 93
+  },
+  {
+    "id": "barking",
+    "name": "Barking",
+    "lat": 51.5398,
+    "lng": 0.0803,
+    "zone": 4,
+    "lines": [
+      "District",
+      "Hammersmith & City",
+      "Overground"
+    ],
+    "avgDailyJourneys": 10297,
+    "recoveryPct": 93
+  },
+  {
+    "id": "wembley-park",
+    "name": "Wembley Park",
+    "lat": 51.5635,
+    "lng": -0.2795,
+    "zone": 4,
+    "lines": [
+      "Jubilee",
+      "Metropolitan"
+    ],
+    "avgDailyJourneys": 12394,
+    "recoveryPct": 94
+  },
+  {
+    "id": "finsbury-park",
+    "name": "Finsbury Park",
+    "lat": 51.5642,
+    "lng": -0.1065,
+    "zone": 2,
+    "lines": [
+      "Piccadilly",
+      "Victoria"
+    ],
+    "avgDailyJourneys": 19273,
+    "recoveryPct": 88
+  },
+  {
+    "id": "hackney-central",
+    "name": "Hackney Central",
+    "lat": 51.5479,
+    "lng": -0.055,
+    "zone": 2,
+    "lines": [
+      "Overground"
+    ],
+    "avgDailyJourneys": 24773,
+    "recoveryPct": 85
+  },
+  {
+    "id": "seven-sisters",
+    "name": "Seven Sisters",
+    "lat": 51.5823,
+    "lng": -0.0749,
+    "zone": 3,
+    "lines": [
+      "Victoria",
+      "Overground"
+    ],
+    "avgDailyJourneys": 11393,
+    "recoveryPct": 90
+  },
+  {
+    "id": "wood-green",
+    "name": "Wood Green",
+    "lat": 51.5975,
+    "lng": -0.1097,
+    "zone": 3,
+    "lines": [
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 11401,
+    "recoveryPct": 89
+  },
+  {
+    "id": "turnpike-lane",
+    "name": "Turnpike Lane",
+    "lat": 51.5904,
+    "lng": -0.1028,
+    "zone": 3,
+    "lines": [
+      "Piccadilly"
+    ],
+    "avgDailyJourneys": 7816,
+    "recoveryPct": 92
+  },
+  {
+    "id": "gospel-oak",
+    "name": "Gospel Oak",
+    "lat": 51.5554,
+    "lng": -0.1487,
+    "zone": 2,
+    "lines": [
+      "Overground"
+    ],
+    "avgDailyJourneys": 22901,
+    "recoveryPct": 86
+  },
+  {
+    "id": "vauxhall",
+    "name": "Vauxhall",
+    "lat": 51.4861,
+    "lng": -0.1253,
+    "zone": 1,
+    "lines": [
+      "Victoria"
+    ],
+    "avgDailyJourneys": 35189,
+    "recoveryPct": 82
+  },
+  {
+    "id": "stockwell",
+    "name": "Stockwell",
+    "lat": 51.4723,
+    "lng": -0.1229,
+    "zone": 2,
+    "lines": [
+      "Victoria",
+      "Northern"
+    ],
+    "avgDailyJourneys": 12215,
+    "recoveryPct": 86
+  },
+  {
+    "id": "brixton",
+    "name": "Brixton",
+    "lat": 51.4613,
+    "lng": -0.1148,
+    "zone": 2,
+    "lines": [
+      "Victoria"
+    ],
+    "avgDailyJourneys": 15534,
+    "recoveryPct": 86
+  },
+  {
+    "id": "finchley-road",
+    "name": "Finchley Road",
+    "lat": 51.5472,
+    "lng": -0.1803,
+    "zone": 2,
+    "lines": [
+      "Jubilee",
+      "Metropolitan"
+    ],
+    "avgDailyJourneys": 22134,
+    "recoveryPct": 87
+  },
+  {
+    "id": "hampstead",
+    "name": "Hampstead",
+    "lat": 51.5568,
+    "lng": -0.1778,
+    "zone": 2,
+    "lines": [
+      "Northern"
+    ],
+    "avgDailyJourneys": 10153,
+    "recoveryPct": 87
+  },
+  {
+    "id": "camden-town",
+    "name": "Camden Town",
+    "lat": 51.5392,
+    "lng": -0.1426,
+    "zone": 2,
+    "lines": [
+      "Northern"
+    ],
+    "avgDailyJourneys": 17900,
+    "recoveryPct": 85
+  },
+  {
+    "id": "swiss-cottage",
+    "name": "Swiss Cottage",
+    "lat": 51.5432,
+    "lng": -0.1738,
+    "zone": 2,
+    "lines": [
+      "Jubilee"
+    ],
+    "avgDailyJourneys": 23685,
+    "recoveryPct": 88
+  },
+  {
+    "id": "west-brompton",
+    "name": "West Brompton",
+    "lat": 51.4872,
+    "lng": -0.1953,
+    "zone": 2,
+    "lines": [
+      "District",
+      "Overground"
+    ],
+    "avgDailyJourneys": 15283,
+    "recoveryPct": 85
+  },
+  {
+    "id": "shepherd-bush",
+    "name": "Shepherd's Bush",
+    "lat": 51.5046,
+    "lng": -0.2188,
+    "zone": 2,
+    "lines": [
+      "Central"
+    ],
+    "avgDailyJourneys": 10073,
+    "recoveryPct": 87
+  },
+  {
+    "id": "hammersmith",
+    "name": "Hammersmith",
+    "lat": 51.4936,
+    "lng": -0.2251,
+    "zone": 2,
+    "lines": [
+      "District",
+      "Piccadilly",
+      "Circle",
+      "Hammersmith & City"
+    ],
+    "avgDailyJourneys": 20251,
+    "recoveryPct": 89
+  },
+  {
+    "id": "putney-bridge",
+    "name": "Putney Bridge",
+    "lat": 51.4682,
+    "lng": -0.2089,
+    "zone": 2,
+    "lines": [
+      "District"
+    ],
+    "avgDailyJourneys": 19175,
+    "recoveryPct": 87
+  },
+  {
+    "id": "edgware-road",
+    "name": "Edgware Road",
+    "lat": 51.5199,
+    "lng": -0.1699,
+    "zone": 1,
+    "lines": [
+      "Bakerloo",
+      "Circle",
+      "District",
+      "Hammersmith & City"
+    ],
+    "avgDailyJourneys": 41062,
+    "recoveryPct": 84
+  }
+]

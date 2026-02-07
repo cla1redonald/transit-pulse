@@ -1,0 +1,39 @@
+{
+  "totalJourneys": 9574414,
+  "change7d": -0.8541664509314583,
+  "change30d": -5.508029792402993,
+  "recoveryPct": 105.745082885161,
+  "byMode": {
+    "tube": {
+      "current": 2725466,
+      "change7d": -7.265374728436082,
+      "recoveryPct": 92.89334288301299
+    },
+    "bus": {
+      "current": 5741873,
+      "change7d": 2.6462840222215704,
+      "recoveryPct": 108.61821330012367
+    },
+    "overground": {
+      "current": 490354,
+      "change7d": 0.0236619764277759,
+      "recoveryPct": 105.89381619441657
+    },
+    "elizabeth": {
+      "current": 239449,
+      "change7d": -6.330218166028377,
+      "recoveryPct": null
+    },
+    "dlr": {
+      "current": 312336,
+      "change7d": 0.30218853867274686,
+      "recoveryPct": 102.10210335736063
+    },
+    "tram": {
+      "current": 64936,
+      "change7d": -2.7860532658652333,
+      "recoveryPct": 99.88599504188126
+    }
+  },
+  "lastUpdated": "2025-01-31"
+}

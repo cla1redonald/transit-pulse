@@ -1,0 +1,79 @@
+[
+  {
+    "dayOfWeek": 0,
+    "dayName": "Monday",
+    "avgTube": 2206433,
+    "avgBus": 4393481,
+    "avgOverground": 363832,
+    "avgElizabeth": 104956,
+    "avgDlr": 253096,
+    "avgTram": 49807,
+    "avgTotal": 7371605
+  },
+  {
+    "dayOfWeek": 1,
+    "dayName": "Tuesday",
+    "avgTube": 2555744,
+    "avgBus": 4389074,
+    "avgOverground": 364667,
+    "avgElizabeth": 104922,
+    "avgDlr": 252795,
+    "avgTram": 49837,
+    "avgTotal": 7717041
+  },
+  {
+    "dayOfWeek": 2,
+    "dayName": "Wednesday",
+    "avgTube": 2564771,
+    "avgBus": 4408099,
+    "avgOverground": 366831,
+    "avgElizabeth": 105691,
+    "avgDlr": 253709,
+    "avgTram": 50043,
+    "avgTotal": 7749145
+  },
+  {
+    "dayOfWeek": 3,
+    "dayName": "Thursday",
+    "avgTube": 2564140,
+    "avgBus": 4377534,
+    "avgOverground": 366265,
+    "avgElizabeth": 105933,
+    "avgDlr": 253037,
+    "avgTram": 49895,
+    "avgTotal": 7716804
+  },
+  {
+    "dayOfWeek": 4,
+    "dayName": "Friday",
+    "avgTube": 2213473,
+    "avgBus": 4401279,
+    "avgOverground": 366612,
+    "avgElizabeth": 105423,
+    "avgDlr": 253655,
+    "avgTram": 50037,
+    "avgTotal": 7390479
+  },
+  {
+    "dayOfWeek": 5,
+    "dayName": "Saturday",
+    "avgTube": 800578,
+    "avgBus": 2568434,
+    "avgOverground": 166804,
+    "avgElizabeth": 41844,
+    "avgDlr": 80276,
+    "avgTram": 26701,
+    "avgTotal": 3684638
+  },
+  {
+    "dayOfWeek": 6,
+    "dayName": "Sunday",
+    "avgTube": 797307,
+    "avgBus": 2550852,
+    "avgOverground": 166293,
+    "avgElizabeth": 42117,
+    "avgDlr": 79713,
+    "avgTram": 26639,
+    "avgTotal": 3662921
+  }
+]

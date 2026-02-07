@@ -1,0 +1,257 @@
+[
+  {
+    "id": "times-sq-42",
+    "name": "Times Square-42 St",
+    "lat": 40.758,
+    "lng": -73.9855,
+    "lines": [
+      "1",
+      "2",
+      "3",
+      "7",
+      "N",
+      "Q",
+      "R",
+      "W",
+      "S"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 175000,
+    "recoveryPct": 83
+  },
+  {
+    "id": "grand-central-42",
+    "name": "Grand Central-42 St",
+    "lat": 40.7527,
+    "lng": -73.9772,
+    "lines": [
+      "4",
+      "5",
+      "6",
+      "7",
+      "S"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 165000,
+    "recoveryPct": 85
+  },
+  {
+    "id": "herald-sq-34",
+    "name": "Herald Square-34 St",
+    "lat": 40.7506,
+    "lng": -73.9885,
+    "lines": [
+      "B",
+      "D",
+      "F",
+      "M",
+      "N",
+      "Q",
+      "R",
+      "W"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 125000,
+    "recoveryPct": 80
+  },
+  {
+    "id": "penn-station-34",
+    "name": "Penn Station-34 St",
+    "lat": 40.7505,
+    "lng": -73.9934,
+    "lines": [
+      "1",
+      "2",
+      "3",
+      "A",
+      "C",
+      "E"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 120000,
+    "recoveryPct": 82
+  },
+  {
+    "id": "14-st-union-sq",
+    "name": "14 St-Union Square",
+    "lat": 40.7347,
+    "lng": -73.9897,
+    "lines": [
+      "4",
+      "5",
+      "6",
+      "L",
+      "N",
+      "Q",
+      "R",
+      "W"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 105000,
+    "recoveryPct": 78
+  },
+  {
+    "id": "fulton-st",
+    "name": "Fulton Street",
+    "lat": 40.7097,
+    "lng": -74.0097,
+    "lines": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "A",
+      "C",
+      "J",
+      "Z"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 95000,
+    "recoveryPct": 88
+  },
+  {
+    "id": "59-st-columbus",
+    "name": "59 St-Columbus Circle",
+    "lat": 40.7683,
+    "lng": -73.9819,
+    "lines": [
+      "1",
+      "2",
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 90000,
+    "recoveryPct": 81
+  },
+  {
+    "id": "atlantic-av-barclays",
+    "name": "Atlantic Av-Barclays Center",
+    "lat": 40.6843,
+    "lng": -73.9774,
+    "lines": [
+      "2",
+      "3",
+      "4",
+      "5",
+      "B",
+      "D",
+      "N",
+      "Q",
+      "R"
+    ],
+    "borough": "Brooklyn",
+    "avgDailyRidership": 88000,
+    "recoveryPct": 84
+  },
+  {
+    "id": "86-st-lexington",
+    "name": "86 St (Lexington Ave)",
+    "lat": 40.7794,
+    "lng": -73.9554,
+    "lines": [
+      "4",
+      "5",
+      "6"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 75000,
+    "recoveryPct": 79
+  },
+  {
+    "id": "canal-st",
+    "name": "Canal Street",
+    "lat": 40.7188,
+    "lng": -74.0062,
+    "lines": [
+      "1",
+      "2",
+      "A",
+      "C",
+      "E",
+      "J",
+      "N",
+      "Q",
+      "R",
+      "W",
+      "Z",
+      "6"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 72000,
+    "recoveryPct": 86
+  },
+  {
+    "id": "jackson-hts-roosevelt",
+    "name": "Jackson Heights-Roosevelt Av",
+    "lat": 40.7465,
+    "lng": -73.8917,
+    "lines": [
+      "E",
+      "F",
+      "M",
+      "R",
+      "7"
+    ],
+    "borough": "Queens",
+    "avgDailyRidership": 70000,
+    "recoveryPct": 90
+  },
+  {
+    "id": "flushing-main",
+    "name": "Flushing-Main Street",
+    "lat": 40.7596,
+    "lng": -73.8303,
+    "lines": [
+      "7"
+    ],
+    "borough": "Queens",
+    "avgDailyRidership": 68000,
+    "recoveryPct": 92
+  },
+  {
+    "id": "96-st-broadway",
+    "name": "96 St (Broadway)",
+    "lat": 40.7937,
+    "lng": -73.9726,
+    "lines": [
+      "1",
+      "2",
+      "3"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 65000,
+    "recoveryPct": 76
+  },
+  {
+    "id": "125-st-lexington",
+    "name": "125 St (Lexington Ave)",
+    "lat": 40.8043,
+    "lng": -73.9387,
+    "lines": [
+      "4",
+      "5",
+      "6"
+    ],
+    "borough": "Manhattan",
+    "avgDailyRidership": 63000,
+    "recoveryPct": 85
+  },
+  {
+    "id": "jay-st-metrotech",
+    "name": "Jay St-MetroTech",
+    "lat": 40.6922,
+    "lng": -73.9862,
+    "lines": [
+      "A",
+      "C",
+      "F",
+      "R"
+    ],
+    "borough": "Brooklyn",
+    "avgDailyRidership": 60000,
+    "recoveryPct": 82
+  }
+]

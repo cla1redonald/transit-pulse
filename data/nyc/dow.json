@@ -1,0 +1,79 @@
+[
+  {
+    "dayOfWeek": "Monday",
+    "avgSubway": 2631651.0354330707,
+    "avgBus": 1097733.0472440945,
+    "avgLirr": 152573.35826771654,
+    "avgMetroNorth": 125906.14566929133,
+    "avgAccessARide": 22919.303149606298,
+    "avgBridgesTunnels": 836297.9173228346,
+    "avgSir": 5232.507874015748,
+    "avgTotal": 4872313.31496063
+  },
+  {
+    "dayOfWeek": "Tuesday",
+    "avgSubway": 2955051.216535433,
+    "avgBus": 1188449.098425197,
+    "avgLirr": 168312.93307086613,
+    "avgMetroNorth": 143641.7874015748,
+    "avgAccessARide": 25908.570866141734,
+    "avgBridgesTunnels": 856296.031496063,
+    "avgSir": 6063.925196850394,
+    "avgTotal": 5343723.562992126
+  },
+  {
+    "dayOfWeek": "Wednesday",
+    "avgSubway": 3009865.720472441,
+    "avgBus": 1200823.1062992127,
+    "avgLirr": 167297.59448818897,
+    "avgMetroNorth": 141376.42913385827,
+    "avgAccessARide": 26864.267716535433,
+    "avgBridgesTunnels": 875547.2834645669,
+    "avgSir": 6057.094488188976,
+    "avgTotal": 5427831.496062992
+  },
+  {
+    "dayOfWeek": "Thursday",
+    "avgSubway": 2968432.811023622,
+    "avgBus": 1170600.5078740157,
+    "avgLirr": 163738.98031496062,
+    "avgMetroNorth": 136706.07480314962,
+    "avgAccessARide": 26050.212598425198,
+    "avgBridgesTunnels": 894172.5787401575,
+    "avgSir": 5839.275590551181,
+    "avgTotal": 5365540.440944882
+  },
+  {
+    "dayOfWeek": "Friday",
+    "avgSubway": 2814682.162055336,
+    "avgBus": 1125039.3241106719,
+    "avgLirr": 158826.98023715414,
+    "avgMetroNorth": 131168.11067193677,
+    "avgAccessARide": 24867.91304347826,
+    "avgBridgesTunnels": 911389.4466403162,
+    "avgSir": 5116.422924901186,
+    "avgTotal": 5171090.359683795
+  },
+  {
+    "dayOfWeek": "Saturday",
+    "avgSubway": 1903371.624505929,
+    "avgBus": 728459.3636363636,
+    "avgLirr": 87086.70750988142,
+    "avgMetroNorth": 79273.38339920949,
+    "avgAccessARide": 15231.328063241106,
+    "avgBridgesTunnels": 838109.2134387352,
+    "avgSir": 1733.4664031620553,
+    "avgTotal": 3653265.086956522
+  },
+  {
+    "dayOfWeek": "Sunday",
+    "avgSubway": 1508317.8858267716,
+    "avgBus": 568093.2086614174,
+    "avgLirr": 73524.50787401575,
+    "avgMetroNorth": 64488.00787401575,
+    "avgAccessARide": 14586.669291338583,
+    "avgBridgesTunnels": 789142.5669291338,
+    "avgSir": 1392.6456692913387,
+    "avgTotal": 3019545.4921259843
+  }
+]

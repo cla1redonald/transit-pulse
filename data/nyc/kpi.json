@@ -1,0 +1,43 @@
+{
+  "totalRidership": 5865319,
+  "change7d": 0.6555382418759181,
+  "change30d": -19.650830955638714,
+  "recoveryPct": 72.82907153046578,
+  "byMode": {
+    "subway": {
+      "ridership": 3734383,
+      "change": 10.585343347969928,
+      "recoveryPct": 73
+    },
+    "bus": {
+      "ridership": 787710,
+      "change": -34.61348819372158,
+      "recoveryPct": 38
+    },
+    "lirr": {
+      "ridership": 229804,
+      "change": 8.956257052637568,
+      "recoveryPct": 76
+    },
+    "metroNorth": {
+      "ridership": 198894,
+      "change": 20.195799969783955,
+      "recoveryPct": 74
+    },
+    "accessARide": {
+      "ridership": 38431,
+      "change": 22.920198304813688,
+      "recoveryPct": 136
+    },
+    "bridgesTunnels": {
+      "ridership": 869256,
+      "change": 4.5663638463315115,
+      "recoveryPct": 100
+    },
+    "sir": {
+      "ridership": 6841,
+      "change": 4.4746487477092245,
+      "recoveryPct": 42
+    }
+  }
+}

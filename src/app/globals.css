@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ===== SHARED THEME (used on landing page and as base) ===== */
+  :root {
+    /* Base theme variables -- London's dark theme as default (more polished) */
+    --background: 222 47% 5%;
+    --surface: 222 43% 7%;
+    --surface-raised: 228 31% 15%;
+    --surface-overlay: 228 22% 19%;
+    --foreground: 240 13% 94%;
+    --card: 222 43% 7%;
+    --card-foreground: 240 13% 94%;
+    --popover: 228 31% 15%;
+    --popover-foreground: 240 13% 94%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 240 13% 94%;
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 240 13% 94%;
+    --muted: 240 9% 35%;
+    --muted-foreground: 240 6% 59%;
+    --accent: 228 31% 15%;
+    --accent-foreground: 240 13% 94%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 240 13% 94%;
+    --border: 228 29% 22%;
+    --input: 228 29% 22%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
+    --chart-1: 217 91% 60%;
+    --chart-2: 340 93% 46%;
+    --chart-3: 25 88% 49%;
+    --chart-4: 262 35% 48%;
+    --chart-5: 178 100% 34%;
+  }
+
+  .light {
+    /* Shared light theme variables (London's light palette) */
+    --background: 240 38% 98%;
+    --surface: 0 0% 100%;
+    --surface-raised: 240 14% 96%;
+    --surface-overlay: 240 14% 94%;
+    --foreground: 228 31% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 228 31% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 228 31% 15%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 228 31% 15%;
+    --muted: 240 6% 59%;
+    --muted-foreground: 240 9% 35%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 228 31% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 7% 82%;
+    --input: 240 7% 82%;
+    --ring: 217 91% 60%;
+  }
+
+  /* ===== NYC MODE COLORS (scoped) ===== */
+  [data-city="nyc"] {
+    --color-mode-1: 220 100% 33%;   /* Subway: #0039A6 */
+    --color-mode-2: 24 100% 55%;    /* Bus: #FF6319 */
+    --color-mode-3: 48 97% 51%;     /* LIRR: #FCCC0A */
+    --color-mode-4: 153 100% 33%;   /* Metro-North: #00A65C */
+    --color-mode-5: 303 54% 49%;    /* Access-A-Ride: #B933AD */
+    --color-mode-6: 0 0% 44%;       /* Bridges & Tunnels: #6D6E71 */
+    --color-mode-7: 213 71% 39%;    /* SIR: #1D5DA8 */
+  }
+
+  /* ===== LONDON MODE COLORS (scoped) ===== */
+  [data-city="london"] {
+    --color-mode-1: 217 100% 33%;   /* Tube: #0019A8 */
+    --color-mode-2: 340 93% 46%;    /* Bus: #CE1249 */
+    --color-mode-3: 25 88% 49%;     /* Overground: #E86A10 */
+    --color-mode-4: 262 35% 48%;    /* Elizabeth: #6950A1 */
+    --color-mode-5: 178 100% 34%;   /* DLR: #00AFAD */
+    --color-mode-6: 86 100% 40%;    /* Tram: #66CC00 */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+}
+
+@layer utilities {
+  .text-surface-raised {
+    color: hsl(var(--surface-raised));
+  }
+}
+
+/* Pulse animation for the logo dot */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Scroll-triggered fade-in animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 400ms ease-out forwards;
+}
+
+.animate-fade-in-up-pending {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in-up-pending {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-pulse-dot {
+    animation: none;
+  }
+}
+
+/* Hide scrollbar for filter overflow */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Prevent horizontal overflow on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Leaflet popup dark theme overrides */
+.leaflet-popup-content-wrapper {
+  background: hsl(var(--surface-raised)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3) !important;
+}
+
+.leaflet-popup-tip {
+  background: hsl(var(--surface-raised)) !important;
+}
+
+.leaflet-popup-close-button {
+  color: hsl(var(--muted-foreground)) !important;
+}
