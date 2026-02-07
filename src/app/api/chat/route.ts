@@ -112,28 +112,38 @@ export async function POST(req: Request) {
     );
   }
 
-  const systemPrompt = buildSystemPrompt(city ?? null, filters);
+  try {
+    const systemPrompt = buildSystemPrompt(city ?? null, filters);
 
-  // Convert UIMessages to ModelMessages for the LLM
-  const modelMessages = await convertToModelMessages(messages);
+    // Convert UIMessages to ModelMessages for the LLM
+    const modelMessages = await convertToModelMessages(messages);
 
-  const result = streamText({
-    model: anthropic('claude-sonnet-4-20250514'),
-    system: systemPrompt,
-    messages: modelMessages,
-    tools: chatTools,
-    stopWhen: stepCountIs(3),
-    temperature: 0.3,
-    onFinish: ({ usage }) => {
-      if (usage) {
-        const cost = estimateCost(
-          usage.inputTokens ?? 0,
-          usage.outputTokens ?? 0,
-        );
-        monthlyTokenCostUsd += cost;
-      }
-    },
-  });
+    const result = streamText({
+      model: anthropic('claude-sonnet-4-20250514'),
+      system: systemPrompt,
+      messages: modelMessages,
+      tools: chatTools,
+      stopWhen: stepCountIs(3),
+      temperature: 0.3,
+      onFinish: ({ usage }) => {
+        if (usage) {
+          const cost = estimateCost(
+            usage.inputTokens ?? 0,
+            usage.outputTokens ?? 0,
+          );
+          monthlyTokenCostUsd += cost;
+        }
+      },
+    });
 
-  return result.toUIMessageStreamResponse();
+    return result.toUIMessageStreamResponse();
+  } catch (err) {
+    console.error('Chat API error:', err);
+    const message =
+      err instanceof Error ? err.message : 'Unknown error';
+    return new Response(
+      JSON.stringify({ error: message }),
+      { status: 500, headers: { 'Content-Type': 'application/json' } },
+    );
+  }
 }
