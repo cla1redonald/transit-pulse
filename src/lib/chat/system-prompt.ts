@@ -1,27 +1,10 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import type { NycKpi, LondonKpi } from './types';
 import type { CityId } from '@/types/shared';
+import nycKpiData from '../../../data/nyc/kpi.json';
+import londonKpiData from '../../../data/london/kpi.json';
 
-// Cache KPI data at module level
-let nycKpi: NycKpi | null = null;
-let londonKpi: LondonKpi | null = null;
-
-function loadKpi<T>(city: string): T {
-  const fullPath = join(process.cwd(), 'data', city, 'kpi.json');
-  const raw = readFileSync(fullPath, 'utf-8');
-  return JSON.parse(raw) as T;
-}
-
-function getNycKpi(): NycKpi {
-  if (!nycKpi) nycKpi = loadKpi<NycKpi>('nyc');
-  return nycKpi;
-}
-
-function getLondonKpi(): LondonKpi {
-  if (!londonKpi) londonKpi = loadKpi<LondonKpi>('london');
-  return londonKpi;
-}
+const nycKpi = nycKpiData as NycKpi;
+const londonKpi = londonKpiData as LondonKpi;
 
 function formatNumber(n: number): string {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
@@ -34,8 +17,7 @@ function formatPct(n: number): string {
 }
 
 function buildNycSummary(): string {
-  const kpi = getNycKpi();
-  const modeLines = Object.entries(kpi.byMode)
+  const modeLines = Object.entries(nycKpi.byMode)
     .map(
       ([mode, data]) =>
         `  - ${mode}: ${formatNumber(data.ridership)} daily (${data.recoveryPct}% recovered, ${formatPct(data.change)} 7d change)`,
@@ -45,18 +27,17 @@ function buildNycSummary(): string {
   return `### NYC (MTA)
 - Date range: March 2020 - January 2025
 - Transit modes: subway, bus, lirr (Long Island Rail Road), metroNorth (Metro-North Railroad), accessARide (Access-A-Ride paratransit), bridgesTunnels (Bridges & Tunnels tolls), sir (Staten Island Railway)
-- Latest daily total ridership: ${formatNumber(kpi.totalRidership)}
-- 7-day change: ${formatPct(kpi.change7d)}
-- 30-day change: ${formatPct(kpi.change30d)}
-- Recovery vs pre-pandemic: ${kpi.recoveryPct.toFixed(1)}%
+- Latest daily total ridership: ${formatNumber(nycKpi.totalRidership)}
+- 7-day change: ${formatPct(nycKpi.change7d)}
+- 30-day change: ${formatPct(nycKpi.change30d)}
+- Recovery vs pre-pandemic: ${nycKpi.recoveryPct.toFixed(1)}%
 - Mode breakdown:
 ${modeLines}
 - Notable: NYC congestion pricing launched Jan 5, 2024, paused June 5, 2024, relaunched Jan 5, 2025`;
 }
 
 function buildLondonSummary(): string {
-  const kpi = getLondonKpi();
-  const modeLines = Object.entries(kpi.byMode)
+  const modeLines = Object.entries(londonKpi.byMode)
     .map(([mode, data]) => {
       const recoveryStr =
         data.recoveryPct !== null
@@ -69,10 +50,10 @@ function buildLondonSummary(): string {
   return `### London (TfL)
 - Date range: March 2019 - January 2025
 - Transit modes: tube, bus, overground, elizabeth (Elizabeth line, opened May 2022), dlr (Docklands Light Railway), tram
-- Latest daily total journeys: ${formatNumber(kpi.totalJourneys)} (${kpi.lastUpdated})
-- 7-day change: ${formatPct(kpi.change7d)}
-- 30-day change: ${formatPct(kpi.change30d)}
-- Recovery vs pre-pandemic: ${kpi.recoveryPct.toFixed(1)}%
+- Latest daily total journeys: ${formatNumber(londonKpi.totalJourneys)} (${londonKpi.lastUpdated})
+- 7-day change: ${formatPct(londonKpi.change7d)}
+- 30-day change: ${formatPct(londonKpi.change30d)}
+- Recovery vs pre-pandemic: ${londonKpi.recoveryPct.toFixed(1)}%
 - Mode breakdown:
 ${modeLines}
 - Notable: Elizabeth line opened May 2022 (no pre-pandemic baseline)`;

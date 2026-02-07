@@ -1,5 +1,3 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
 import type {
   QueryRidershipParams,
   QueryRidershipResult,
@@ -19,19 +17,48 @@ import type {
 } from './types';
 import type { CityId } from '@/types/shared';
 
-// ---- Data loading (cached at module level for serverless perf) ----
+// Static JSON imports — required for Vercel serverless (no fs access)
+import nycDaily from '../../../data/nyc/daily.json';
+import nycWeekly from '../../../data/nyc/weekly.json';
+import nycMonthly from '../../../data/nyc/monthly.json';
+import nycRecovery from '../../../data/nyc/recovery.json';
+import nycDow from '../../../data/nyc/dow.json';
+import londonDaily from '../../../data/london/daily.json';
+import londonWeekly from '../../../data/london/weekly.json';
+import londonMonthly from '../../../data/london/monthly.json';
+import londonRecovery from '../../../data/london/recovery.json';
+import londonDow from '../../../data/london/dow.json';
 
-const dataCache = new Map<string, unknown>();
+// ---- Data loading ----
 
-function loadJson<T>(relativePath: string): T {
-  if (dataCache.has(relativePath)) {
-    return dataCache.get(relativePath) as T;
-  }
-  const fullPath = join(process.cwd(), 'data', relativePath);
-  const raw = readFileSync(fullPath, 'utf-8');
-  const parsed = JSON.parse(raw) as T;
-  dataCache.set(relativePath, parsed);
-  return parsed;
+type DataKey =
+  | 'nyc/daily'
+  | 'nyc/weekly'
+  | 'nyc/monthly'
+  | 'nyc/recovery'
+  | 'nyc/dow'
+  | 'london/daily'
+  | 'london/weekly'
+  | 'london/monthly'
+  | 'london/recovery'
+  | 'london/dow';
+
+const DATA_MAP: Record<DataKey, Record<string, unknown>[]> = {
+  'nyc/daily': nycDaily as Record<string, unknown>[],
+  'nyc/weekly': nycWeekly as Record<string, unknown>[],
+  'nyc/monthly': nycMonthly as Record<string, unknown>[],
+  'nyc/recovery': nycRecovery as Record<string, unknown>[],
+  'nyc/dow': nycDow as Record<string, unknown>[],
+  'london/daily': londonDaily as Record<string, unknown>[],
+  'london/weekly': londonWeekly as Record<string, unknown>[],
+  'london/monthly': londonMonthly as Record<string, unknown>[],
+  'london/recovery': londonRecovery as Record<string, unknown>[],
+  'london/dow': londonDow as Record<string, unknown>[],
+};
+
+function loadData(city: string, dataset: string): Record<string, unknown>[] {
+  const key = `${city}/${dataset}` as DataKey;
+  return DATA_MAP[key] ?? [];
 }
 
 // ---- Helpers ----
@@ -63,7 +90,6 @@ function filterByDateRange<T extends Record<string, unknown>>(
 
 function capRecords<T>(data: T[], cap: number): T[] {
   if (data.length <= cap) return data;
-  // Return first half and last half
   const half = Math.floor(cap / 2);
   return [...data.slice(0, half), ...data.slice(-half)];
 }
@@ -120,12 +146,12 @@ export function queryRidership(
 ): QueryRidershipResult {
   const { city, modes, date_range, aggregation } = params;
 
-  let filePath: string;
-  if (aggregation === 'daily') filePath = `${city}/daily.json`;
-  else if (aggregation === 'weekly') filePath = `${city}/weekly.json`;
-  else filePath = `${city}/monthly.json`;
+  let dataset: string;
+  if (aggregation === 'daily') dataset = 'daily';
+  else if (aggregation === 'weekly') dataset = 'weekly';
+  else dataset = 'monthly';
 
-  const rawData = loadJson<Record<string, unknown>[]>(filePath);
+  const rawData = loadData(city, dataset);
 
   const filtered = filterByDateRange(rawData, date_range, (r) =>
     getDateField(r, aggregation, city),
@@ -134,7 +160,6 @@ export function queryRidership(
   const data = filtered.map((record) => {
     const row: Record<string, number | string> = {};
 
-    // Set date field
     const dateVal = getDateField(record, aggregation, city);
     if (aggregation === 'weekly' && city === 'nyc') {
       row.weekStart = record.weekStart as string;
@@ -145,7 +170,6 @@ export function queryRidership(
       row.date = dateVal;
     }
 
-    // Include requested modes
     for (const mode of modes) {
       const val = record[mode];
       if (val !== undefined && val !== null) {
@@ -153,7 +177,6 @@ export function queryRidership(
       }
     }
 
-    // Include total
     if (record.total !== undefined) {
       row.total = record.total as number;
     }
@@ -193,7 +216,6 @@ export function compareCities(
     return compareRecovery(modes_nyc, modes_london, date_range);
   }
 
-  // Default: ridership comparison
   const nycResult = queryRidership({
     city: 'nyc',
     modes: modes_nyc,
@@ -228,28 +250,28 @@ function compareDowPatterns(
   modesLondon: string[],
   dateRange: DateRange,
 ): CompareCitiesResult {
-  const nycDow = getDayOfWeekPatterns({ city: 'nyc', modes: modesNyc });
-  const londonDow = getDayOfWeekPatterns({ city: 'london', modes: modesLondon });
+  const nycDowResult = getDayOfWeekPatterns({ city: 'nyc', modes: modesNyc });
+  const londonDowResult = getDayOfWeekPatterns({ city: 'london', modes: modesLondon });
 
   return {
     metric: 'dow_pattern',
     date_range: dateRange,
     nyc: {
       modes: modesNyc,
-      data: nycDow.data as Array<Record<string, number | string>>,
+      data: nycDowResult.data as Array<Record<string, number | string>>,
       summary: {
-        avg_total: nycDow.insights.weekday_avg,
-        min_total: nycDow.insights.weekend_avg,
-        max_total: nycDow.insights.weekday_avg,
+        avg_total: nycDowResult.insights.weekday_avg,
+        min_total: nycDowResult.insights.weekend_avg,
+        max_total: nycDowResult.insights.weekday_avg,
       },
     },
     london: {
       modes: modesLondon,
-      data: londonDow.data as Array<Record<string, number | string>>,
+      data: londonDowResult.data as Array<Record<string, number | string>>,
       summary: {
-        avg_total: londonDow.insights.weekday_avg,
-        min_total: londonDow.insights.weekend_avg,
-        max_total: londonDow.insights.weekday_avg,
+        avg_total: londonDowResult.insights.weekday_avg,
+        min_total: londonDowResult.insights.weekend_avg,
+        max_total: londonDowResult.insights.weekday_avg,
       },
     },
   };
@@ -311,7 +333,7 @@ export function getStatistics(
 ): GetStatisticsResult {
   const { city, mode, date_range } = params;
 
-  const rawData = loadJson<Record<string, unknown>[]>(`${city}/daily.json`);
+  const rawData = loadData(city, 'daily');
 
   const filtered = filterByDateRange(rawData, date_range, (r) =>
     r.date as string,
@@ -355,7 +377,6 @@ export function getStatistics(
     if (v.value > maxEntry.value) maxEntry = v;
   }
 
-  // Trend: compare average of first 30 days vs last 30 days
   const first30 = values.slice(0, Math.min(30, values.length));
   const last30 = values.slice(-Math.min(30, values.length));
   const firstAvg = computeMean(first30.map((v) => v.value));
@@ -393,9 +414,7 @@ export function getRecoveryData(
 ): GetRecoveryDataResult {
   const { city, modes, date_range } = params;
 
-  const rawData = loadJson<Record<string, unknown>[]>(
-    `${city}/recovery.json`,
-  );
+  const rawData = loadData(city, 'recovery');
 
   let filtered: Record<string, unknown>[];
   if (date_range) {
@@ -406,7 +425,6 @@ export function getRecoveryData(
     filtered = rawData;
   }
 
-  // Build recovery field names
   const pctFields = modes.map((m) => `${m}Pct`);
 
   const data = filtered.map((record) => {
@@ -416,8 +434,6 @@ export function getRecoveryData(
     for (const field of pctFields) {
       const val = record[field];
       if (val !== undefined) {
-        // NYC uses decimals (0.73), London uses percentages (92)
-        // Normalize: store as-is in data, normalize in latest
         row[field] = val as number | null;
       }
     }
@@ -426,15 +442,12 @@ export function getRecoveryData(
 
   const capped = sampleEvenly(data, 100);
 
-  // Compute latest recovery per mode
   const latest: Record<string, { recovery_pct: number; date: string }> = {};
   for (const mode of modes) {
     const field = `${mode}Pct`;
-    // Walk backwards to find last non-null value
     for (let i = filtered.length - 1; i >= 0; i--) {
       const val = filtered[i][field];
       if (val !== null && val !== undefined && typeof val === 'number') {
-        // Normalize to percentage: NYC decimals -> multiply by 100, London already percentage
         const normalized = city === 'nyc' ? val * 100 : val;
         latest[mode] = {
           recovery_pct: Math.round(normalized * 100) / 100,
@@ -473,7 +486,7 @@ export function getDayOfWeekPatterns(
 ): GetDayOfWeekPatternsResult {
   const { city, modes } = params;
 
-  const rawData = loadJson<Record<string, unknown>[]>(`${city}/dow.json`);
+  const rawData = loadData(city, 'dow');
 
   const dayOrder = [
     'Monday',
@@ -495,7 +508,6 @@ export function getDayOfWeekPatterns(
 
     let total = 0;
     for (const mode of modes) {
-      // NYC fields: avgSubway, avgBus, etc. London fields: avgTube, avgBus, etc.
       const fieldName = `avg${mode.charAt(0).toUpperCase()}${mode.slice(1)}`;
       const val = record[fieldName];
       if (val !== undefined && val !== null && typeof val === 'number') {
@@ -508,12 +520,10 @@ export function getDayOfWeekPatterns(
     return row;
   });
 
-  // Sort by day order
   data.sort(
     (a, b) => dayOrder.indexOf(a.day) - dayOrder.indexOf(b.day),
   );
 
-  // Compute insights
   const weekdayData = data.filter((d) =>
     ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].includes(d.day),
   );
@@ -557,7 +567,7 @@ export function getDayOfWeekPatterns(
 export function getAnomalies(params: GetAnomaliesParams): GetAnomaliesResult {
   const { city, mode, date_range, threshold = 2.0 } = params;
 
-  const rawData = loadJson<Record<string, unknown>[]>(`${city}/daily.json`);
+  const rawData = loadData(city, 'daily');
 
   const filtered = filterByDateRange(rawData, date_range, (r) =>
     r.date as string,
@@ -604,10 +614,8 @@ export function getAnomalies(params: GetAnomaliesParams): GetAnomaliesResult {
     }
   }
 
-  // Sort by absolute deviation (most extreme first)
   anomalies.sort((a, b) => Math.abs(b.deviation) - Math.abs(a.deviation));
 
-  // Cap at 20
   const capped = anomalies.slice(0, 20);
 
   return {
